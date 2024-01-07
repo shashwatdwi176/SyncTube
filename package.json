@@ -1,0 +1,16 @@
+{
+  "name": "synctube",
+  "version": "1.0.0",
+  "description": "A backend for Synctube",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "javascript",
+    "backend",
+    "synctube"
+  ],
+  "author": "Shashwat Dwivedi",
+  "license": "ISC"
+}
