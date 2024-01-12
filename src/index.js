@@ -36,7 +36,7 @@ const app = express()
     }
     catch(error){
         console.error("ERROR: ",error)
-        throw err
+        throw err;
     }
 })()
 
