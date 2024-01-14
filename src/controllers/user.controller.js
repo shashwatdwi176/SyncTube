@@ -18,7 +18,6 @@ const registerUser = asyncHandler(async (req, res) => {
   //return response
 
   const { fullName, email, username, password } = req.body; //get user details
-  console.log("email", email);
 
   //Validation
   if (
@@ -41,7 +40,12 @@ const registerUser = asyncHandler(async (req, res) => {
 
   const avatarLocalPath = req.files?.avatar[0]?.path;
   //files get into server
-  const coverImageLocalPath = req.files?.coverImage[0]?.path;
+ // const coverImageLocalPath = req.files?.coverImage[0]?.path;
+
+  let coverImageLocalPath;  //checking  cover image is uploaded or not
+  if (req.files && Array.isArray(req.files.coverImage) && req.files.coverImage.length> 0){
+    coverImageLocalPath = req.files.coverImage[0]?.path
+  }
 
   if (!avatarLocalPath) {
     throw new ApiError(400, "Avatar file is required");
