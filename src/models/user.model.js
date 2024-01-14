@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 import bcrypt from "bcrypt"; //used for encryption of password
-import { jwt } from "jsonwebtoken"; //use for bearing ,its a bearer token who have these token to them we send the details
+import  jwt  from "jsonwebtoken"; //use for bearing ,its a bearer token who have these token to them we send the details
 
 const userSchema = new Schema(
   {
@@ -52,7 +52,7 @@ userSchema.pre("save", async function (next) {
   // for encrption of password
   if (!this.isModified("password")) return next(); // if password is not modified then directly execute next
 
-  this.password = bcrypt.hash(this.password, 10); // if password is modified or set then bcrypt encrypt the password
+  this.password = await bcrypt.hash(this.password, 10); // if password is modified or set then bcrypt encrypt the password
   next();
 });
 
