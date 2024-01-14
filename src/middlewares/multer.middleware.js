@@ -7,7 +7,7 @@ const storage = multer.diskStorage({
         cb(null , "./public/temp") // in temp all the files are getting stored
     },
     filename: function (req, file, cb){
-        cb (null, file.organisation) //the filename has same as orginal filename uploaded by user 
+        cb (null, file.originalname) //the filename has same as orginal filename uploaded by user 
     }
 })
 

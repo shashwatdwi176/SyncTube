@@ -3,7 +3,7 @@ import connectDB from "./db/index.js";
 import {app} from "../src/app.js";
 
 dotenv.config({
-    path: './env'
+    path: './.env'
 })
 connectDB()  //to connect mongoDb Atlas
 .then(() => {  //  to run the database in the server
