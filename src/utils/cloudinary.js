@@ -24,8 +24,21 @@ const uploadOnCloudinary = async (localFilePath) => {
         fs.unlinkSync(localFilePath) // remove the locally saved temporary file as the upload operation got failed
         return null;
     }
+
+    
 }
 
+const deleteFile = async (publicid) => {
+    try {
+      if (!publicid) return "Public id not found";
+      const deletresponse = await cloudinary.uploader.destroy(publicid, {
+        resource_type: "video",
+      });
+      return deletresponse;
+    } catch (e) {
+      return e.message;
+    }
+  };
 
 
-export {uploadOnCloudinary}
+export {uploadOnCloudinary, deleteFile}
